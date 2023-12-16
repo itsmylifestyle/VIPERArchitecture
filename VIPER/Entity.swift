@@ -14,4 +14,5 @@ import Foundation
 struct crypto : Decodable {
     let currency : String
     let price : String
+    //let prices : String //-> checking the error handling
 }

@@ -34,17 +34,19 @@ class CryptoPresenter : AnyPresenter {
     func interactorDidDownloadCryptos(result: Result<[crypto], Error>) {
         switch result {
         case .success(let cryptos):
-            //view.update
-            print("success")
-        case .failure(let error):
-            //view.update error
-            print("error")
+            View?.update(with: cryptos)
+        case .failure(_):
+            View?.update(with: "Try again later...")
         }
     }
     
     var router: AnyRouter?
     
-    var interactor: AnyInteractor?
+    var interactor: AnyInteractor? {
+        didSet {
+            interactor?.downloadCryptos()
+        }
+    }
     
     var View: AnyView?
     

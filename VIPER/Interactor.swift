@@ -7,4 +7,11 @@
 
 import Foundation
 
-//backend working
+//Talks to -> Presenter
+protocol AnyInteractor {
+    
+}
+
+class cryptoInteractor : AnyInteractor {
+    
+}
